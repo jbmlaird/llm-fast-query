@@ -7,8 +7,7 @@ const CGPT = "cgpt";
 let bardTabId;
 let chatGptTabId;
 
-chrome.tabs.onRemoved.addListener(
-    function (tabId, removeInfo) {
+chrome.tabs.onRemoved.addListener((tabId, removeInfo) => {
         if (bardTabId === tabId) {
             getExistingTabIfExists(BARD_BASE_URL)
                 .then(result => {
@@ -23,8 +22,7 @@ chrome.tabs.onRemoved.addListener(
     }
 );
 
-chrome.webRequest.onBeforeRequest.addListener(
-    function (details) {
+chrome.webRequest.onBeforeRequest.addListener(details => {
         // Ensure the request is being made from the address bar.
         if (details.type === "main_frame") {
             let url = removeProtocol(details.url);

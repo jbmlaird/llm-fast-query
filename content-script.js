@@ -8,7 +8,7 @@ const aiToQuerySelector = {
     [CGPT]: "#prompt-textarea"
 }
 
-chrome.runtime.onMessage.addListener(function(request, sender, response) {
+chrome.runtime.onMessage.addListener((request, sender, response) => {
   const [query, aiName] = request;
   const decodedQuery = decodeURI(query);
   typeQuery(decodedQuery, aiName, false);
