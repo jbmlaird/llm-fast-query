@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "chat.openai.com/?hookMeUpBro=\\1"
+      }
+    },
+    "condition": {
+      "regexFilter": "cgpt/(.*)?",
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "requestDomains": [
+        "cgpt"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "bard.google.com/?hookMeUpBro=\\1"
+      }
+    },
+    "condition": {
+      "regexFilter": "bard/(.*)?",
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "requestDomains": [
+        "bard"
+      ]
+    }
+  }
+]
