@@ -1,10 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "Bard & ChatGPT address bar querying",
-  "version": "1.0",
+  "name": "AI Address Bar Query",
+  "version": "0.0.0.1",
+  "description": "Search Bard & ChatGPT directly from your address bar with cgpt/ and bard/ 🚀",
+  "icons": {
+    "48": "48.png"
+  },
   "permissions": [
     "webRequest",
     "webRequestBlocking",
+    "tabs",
     "http://cgpt/*",
     "http://bard/*"
   ],

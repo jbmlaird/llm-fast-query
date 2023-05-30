@@ -1,3 +1,5 @@
+"use strict";
+
 const BARD = "bard";
 const CGPT = "cgpt";
 
@@ -6,9 +8,15 @@ const aiToQuerySelector = {
     [CGPT]: "#prompt-textarea"
 }
 
+chrome.runtime.onMessage.addListener(function(request, sender, response) {
+  const [query, aiName] = request;
+  const decodedQuery = decodeURI(query);
+  typeQuery(decodedQuery, aiName, false);
+});
+
 function main() {
-    const query = getQueryFromURL();
-    if (query) {
+    const queryFromUrl = getQueryFromURL();
+    if (queryFromUrl) {
         const currentURL = window.location.href;
         let aiName;
         if (currentURL.startsWith("https://bard.google.com")) {
@@ -21,16 +29,15 @@ function main() {
             return;
         }
         window.addEventListener("load", () => {
-            typeQuery(query, aiName);
+            typeQuery(queryFromUrl, aiName, true);
         });
     }
 }
 
-// Type the query into the AI's query box and press enter.
-async function typeQuery(query, aiName) {
+async function typeQuery(query, aiName, isInitialPageLoad) {
     // Allow the page to fully load before trying to manipulate it.
     await (async () => {
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, isInitialPageLoad === true ? 1500 : 0));
     })();
     const queryBox = document.querySelector(aiToQuerySelector[aiName]);
     queryBox.value = query;
