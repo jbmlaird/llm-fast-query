@@ -3,6 +3,7 @@
 const BARD = "bard";
 const CGPT = "cgpt";
 
+// JS selectors for the respective input text boxes.
 const aiToQuerySelector = {
   [BARD]: "#mat-input-0",
   [CGPT]: "#prompt-textarea"
