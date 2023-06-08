@@ -25,41 +25,42 @@ You can install either manifest version from source:
 4. Navigate inside the folder where you downloaded `llm-fast-query`, open the `manifest_v2` or `manifest_v3` folder,
    then click `Select`
 5. In your address bar type `bard/why is this extension so good?` or `cgpt/how is Josh Laird such a legend?`. Make sure
-   you click the URL option, not the `Google Search` option
+   you click the URL option, not the `Google Search` option (see gif below)
 
 ![url_not_google_search.jpg](https://i.imgur.com/bMDt1aU.jpeg)
 
 ## FAQ
 
-**Q: Why am I getting Google search results for `bard/` and `cgpt/` rather than being redirected?**
+**Why am I getting Google search results entering `bard/` and `cgpt/` rather than being redirected?**
 
-A: Make sure you're pressing the URL option, not the `Google Search` option (see step 5 above).
+Make sure you're pressing the URL option, not the `Google Search` option (see step 5 above).
 
-**Q: Should I install Manifest v2 or v3 from source?**
+**Should I install Manifest v2 or v3 from source?**
 
-A: Manifest v2 is deprecated and 
+Manifest v2 is deprecated and
 [will be phased out in 2023](https://groups.google.com/a/chromium.org/g/chromium-extensions/c/zQ77HkGmK9E?pli=1).
 In line with the security, privacy, and performance improvements with manifest V3, blocking web requests have been
 replaced with the Declarative Net Request API (see
 more [here](https://developer.chrome.com/docs/extensions/migrating/blocking-web-requests/)) which is more private.
 
-**Q: Why include manifest v2?**
+**Why include manifest v2?**
 
-A: I was curious how this would work in both versions. Both are included purely for academic reasons; one can see steps
+I was curious how this would work in both versions. Both are included purely for academic reasons; one can see steps
 required to migrate.
 
-**Q: Why is the code so bad?**
+**Why is the code so bad?**
 
-A: This was a quick side project and I only write JavaScript when I have to 💀
+This was a quick side project and I only write JavaScript when I have to 💀 PRs are welcome!
 
-**Q: Where are the tests?**
+**Where are the tests?**
 
 ![you_write_tests_question_mark_meme](https://i.imgur.com/TcVlA8n.png)
 
-**Q: Why didn't you use the [Omnibox API](https://developer.chrome.com/docs/extensions/reference/omnibox) for a nicer
+**Why didn't you use the [Omnibox API](https://developer.chrome.com/docs/extensions/reference/omnibox) for a nicer
 user experience?**
 
-A: The Omnibox API allows you to directly manipulate the address bar like having `Search Bard` or `Search ChatGPT`:
+The Omnibox API allows you to directly manipulate the address bar like having `Search Bard` or `Search ChatGPT` on
+the left:
 
 ![omnibox gif](https://i.imgur.com/wa0zTGG.gif)
 
@@ -85,7 +86,7 @@ You can, however, set it up like in the GIF manually by using
 4. Enter `bard` or `cgpt` into your address bar and press tab
 5. Query away 🚀
 
-**Q: Will this extension work forever?**
+**Will this extension work forever?**
 
-A: Definitely not. As soon as the websites change the JS selector for their respective text box, this will break. Feel
-free to ping me directly if that happens (jbmlaird+llmfq@gmail.com) or create a PR! 
+Definitely not. As soon as the websites change the JS selector for their respective text box, this will break. Feel
+free to create an issue or pull request if that happens. 
