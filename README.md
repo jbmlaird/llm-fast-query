@@ -20,7 +20,7 @@ Webstore [here](https://chrome.google.com/webstore/detail/llmfastquery/gffndjjgo
 You can install either manifest version from source:
 
 1. `git clone https://github.com/jbmlaird/llm-fast-query.git`
-2. In Chrome, go to chrome://extensions/
+2. In Chrome, go to chrome://extensions/ and enable "Developer Mode" if it isn't already.
 3. Click `Load Unpacked`
 4. Navigate inside the folder where you downloaded `llm-fast-query`, open the `manifest_v2` or `manifest_v3` folder,
    then click `Select`

@@ -3,10 +3,9 @@
 const BARD = "bard";
 const CGPT = "cgpt";
 
-// JS selectors for the respective input text boxes.
 const aiToQuerySelector = {
-  [BARD]: "#mat-input-0",
-  [CGPT]: "#prompt-textarea"
+  [BARD]: [`[data-placeholder="Enter a prompt here"]`, '[aria-label="Send message"]'],
+  [CGPT]: [`#prompt-textarea`, '[data-testid="send-button"]'],
 }
 
 chrome.runtime.onMessage.addListener((request, sender, response) => {
@@ -40,10 +39,17 @@ async function typeQuery(query, aiName, isInitialPageLoad) {
   await (async () => {
     await new Promise(resolve => setTimeout(resolve, isInitialPageLoad === true ? 1500 : 0));
   })();
-  const queryBox = document.querySelector(aiToQuerySelector[aiName]);
-  queryBox.value = query;
-  queryBox.dispatchEvent(new Event("input", { bubbles: true }));
-  queryBox.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
+  const [ queryBox, button ] = aiToQuerySelector[aiName];
+  if (aiName == BARD) {
+    document.querySelector(queryBox).innerText = query;
+    // Bard now waits for text to be entered before enabling the submit button.
+    await new Promise(r => setTimeout(r, 200));
+  }
+  else if (aiName == CGPT) {
+    document.querySelector(queryBox).value = query;
+    document.querySelector(queryBox).dispatchEvent(new InputEvent("input", { bubbles: true }));
+  }
+  document.querySelector(button).click();
 }
 
 function getQueryFromURL() {
