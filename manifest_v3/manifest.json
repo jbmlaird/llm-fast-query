@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "LLMFastQuery",
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "description": "Search Bard & ChatGPT directly from your address bar with cgpt/ and bard/ 🚀",
   "icons": {
     "48": "48.png"
